@@ -19,7 +19,7 @@ struct MusicInfo: Decodable{
     let collectionExplicitness: MusicExplicitness?
     let artistExplicitness: MusicExplicitness?
     
-    let kind: MusicKind
+    let kind: MusicKind?
     let trackName: String?
     let artistName: String?
     let collectionName: String?
@@ -48,6 +48,8 @@ extension MusicInfo{
             return collectionName
         case .artist:
             return artistName
+        case .audiobook:
+            return nil
         }
     }
     
@@ -59,6 +61,8 @@ extension MusicInfo{
             return collectionExplicitness
         case .artist:
             return artistExplicitness
+        case .audiobook:
+            return nil
         }
     }
     
@@ -70,6 +74,8 @@ extension MusicInfo{
             return collectionViewUrl
         case .artist:
             return artistViewUrl
+        case .audiobook:
+            return nil
         }
     }
     
@@ -81,6 +87,8 @@ extension MusicInfo{
             return collectionCensoredName
         case .artist:
             return artistCensoredName
+        case .audiobook:
+            return nil
         }
     }
 }
@@ -89,6 +97,7 @@ enum MusicWrapperType: String, Decodable{
     case track
     case collection
     case artist
+    case audiobook
 }
 
 enum MusicExplicitness: String, Decodable{
@@ -104,10 +113,11 @@ enum MusicKind: String, Decodable{
     case featureMovie = "feature-movie"
     case interactiveBooklet = "interactive-booklet"
     case musicVideo = "music-video"
-    case pdfPodcast = "pdf-podcast"
+    case pdf = "pdf"
     case podcastEpisode = "podcast-episode"
     case softwarePackage = "software-package"
     case song = "song"
     case tvEpisode = "tv-episode"
     case artist = "artist"
+    case podcast = "podcast"
 }
