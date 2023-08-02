@@ -48,7 +48,7 @@ extension MusicInfo{
             return collectionName
         case .artist:
             return artistName
-        case .audiobook:
+        case .unsupported:
             return nil
         }
     }
@@ -61,7 +61,7 @@ extension MusicInfo{
             return collectionExplicitness
         case .artist:
             return artistExplicitness
-        case .audiobook:
+        case .unsupported:
             return nil
         }
     }
@@ -74,7 +74,7 @@ extension MusicInfo{
             return collectionViewUrl
         case .artist:
             return artistViewUrl
-        case .audiobook:
+        case .unsupported:
             return nil
         }
     }
@@ -87,7 +87,7 @@ extension MusicInfo{
             return collectionCensoredName
         case .artist:
             return artistCensoredName
-        case .audiobook:
+        case .unsupported:
             return nil
         }
     }
@@ -97,7 +97,20 @@ enum MusicWrapperType: String, Decodable{
     case track
     case collection
     case artist
-    case audiobook
+    case unsupported
+    
+    init?(rawValue: String) {
+        switch rawValue{
+        case "track":
+            self = .track
+        case "collection":
+            self = .collection
+        case "artist":
+            self = .artist
+        default:
+            self = .unsupported
+        }
+    }
 }
 
 enum MusicExplicitness: String, Decodable{

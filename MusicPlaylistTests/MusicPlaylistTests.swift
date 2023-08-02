@@ -20,7 +20,7 @@ final class MusicPlaylistTests: XCTestCase {
     
     func validateMusicList(_ list: MusicListResponse) throws{
         for item in list.results{
-            if item.wrapperType == .audiobook{ continue }
+            if item.wrapperType == .unsupported{ continue }
             XCTAssertNotNil(item.name)
             XCTAssertNotNil(item.explicitness)
             XCTAssertNotNil(item.censoredName)
