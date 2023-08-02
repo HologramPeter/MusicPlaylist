@@ -1,3 +1,17 @@
-target 'MusicPlaylist' do
+use_frameworks!
+
+def standard_pods
   pod 'Alamofire'
+end
+
+target 'MusicPlaylist' do
+  standard_pods
+end
+
+target 'MusicPlaylistTests' do
+  standard_pods
+end
+
+target 'MusicPlaylistUITests' do
+  standard_pods
 end
