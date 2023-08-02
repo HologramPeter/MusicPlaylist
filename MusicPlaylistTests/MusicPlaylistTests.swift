@@ -18,12 +18,22 @@ final class MusicPlaylistTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testDecodable() throws {
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: "1", ofType: "txt")
+        
+        let json = try String(contentsOfFile: path!).data(using: .utf8)!
+        
+        let list = try JSONDecoder().decode(MusicListResponse.self, from: json)
+        XCTAssertEqual(list.resultCount, list.results.count)
+        
+        for item in list.results{
+            XCTAssertNotNil(item.name)
+            XCTAssertNotNil(item.explicitness)
+            XCTAssertNotNil(item.censoredName)
+            XCTAssertNotNil(item.viewURL)
+        }
+        
     }
 
     func testPerformanceExample() throws {

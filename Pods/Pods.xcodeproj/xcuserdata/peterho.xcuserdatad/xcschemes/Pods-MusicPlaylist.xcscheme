@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "33441EFB48D8D78F1757324BC427F0A8"
-               BuildableName = "libPods-MusicPlaylist.a"
+               BuildableName = "Pods_MusicPlaylist.framework"
                BlueprintName = "Pods-MusicPlaylist"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
