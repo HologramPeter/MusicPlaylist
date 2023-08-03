@@ -10,14 +10,23 @@
 		5D4A61E72A7A85E600778C3B /* MusicListRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4A61E62A7A85E600778C3B /* MusicListRequest.swift */; };
 		5D4A61ED2A7A899A00778C3B /* MusicListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4A61EC2A7A899A00778C3B /* MusicListResponse.swift */; };
 		5D4A61F02A7A8A4000778C3B /* Encodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4A61EF2A7A8A4000778C3B /* Encodable.swift */; };
-		5D4A61F22A7A919200778C3B /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4A61F12A7A919200778C3B /* ViewModel.swift */; };
+		5D4A61F22A7A919200778C3B /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4A61F12A7A919200778C3B /* SearchViewModel.swift */; };
 		5D4A61F52A7A91B900778C3B /* 1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D4A61F42A7A91B900778C3B /* 1.txt */; };
 		5D4A61F72A7A94B300778C3B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4A61F62A7A94B300778C3B /* String.swift */; };
 		5D85DB792A7AB15F00C00994 /* 2.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D85DB782A7AB15F00C00994 /* 2.txt */; };
 		5D85DB7B2A7AB3CE00C00994 /* 3.txt in Resources */ = {isa = PBXBuildFile; fileRef = 5D85DB7A2A7AB3CD00C00994 /* 3.txt */; };
+		5D85DB7E2A7B1EE100C00994 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85DB7D2A7B1EE100C00994 /* LaunchScreenViewController.swift */; };
+		5D85DB802A7B1EF800C00994 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85DB7F2A7B1EF800C00994 /* Constants.swift */; };
+		5D85DB822A7B1F0A00C00994 /* UserConfigs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85DB812A7B1F0A00C00994 /* UserConfigs.swift */; };
+		5D85DB842A7B201900C00994 /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85DB832A7B201900C00994 /* SearchBuilder.swift */; };
+		5D85DB862A7B206300C00994 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D85DB852A7B206300C00994 /* Main.storyboard */; };
+		5D85DB882A7B20A600C00994 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85DB872A7B20A600C00994 /* UIViewController.swift */; };
+		5D85DB8A2A7B267000C00994 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85DB892A7B267000C00994 /* SceneDelegate.swift */; };
+		5D85DB8D2A7B284200C00994 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85DB8C2A7B284200C00994 /* SettingsBuilder.swift */; };
+		5D85DB8F2A7B284C00C00994 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85DB8E2A7B284C00C00994 /* SettingsViewController.swift */; };
+		5D85DB912A7B285400C00994 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D85DB902A7B285400C00994 /* SettingsViewModel.swift */; };
 		5DC927DE2A7A80FF001A4F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC927DD2A7A80FF001A4F41 /* AppDelegate.swift */; };
-		5DC927E22A7A80FF001A4F41 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC927E12A7A80FF001A4F41 /* ViewController.swift */; };
-		5DC927E52A7A80FF001A4F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC927E32A7A80FF001A4F41 /* Main.storyboard */; };
+		5DC927E22A7A80FF001A4F41 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC927E12A7A80FF001A4F41 /* SearchViewController.swift */; };
 		5DC927E72A7A8100001A4F41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC927E62A7A8100001A4F41 /* Assets.xcassets */; };
 		5DC927EA2A7A8100001A4F41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC927E82A7A8100001A4F41 /* LaunchScreen.storyboard */; };
 		5DC927F52A7A8100001A4F41 /* MusicPlaylistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC927F42A7A8100001A4F41 /* MusicPlaylistTests.swift */; };
@@ -54,15 +63,24 @@
 		5D4A61E62A7A85E600778C3B /* MusicListRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListRequest.swift; sourceTree = "<group>"; };
 		5D4A61EC2A7A899A00778C3B /* MusicListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListResponse.swift; sourceTree = "<group>"; };
 		5D4A61EF2A7A8A4000778C3B /* Encodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Encodable.swift; sourceTree = "<group>"; };
-		5D4A61F12A7A919200778C3B /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		5D4A61F12A7A919200778C3B /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		5D4A61F42A7A91B900778C3B /* 1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = 1.txt; path = MusicPlaylistTests/Data/1.txt; sourceTree = SOURCE_ROOT; };
 		5D4A61F62A7A94B300778C3B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5D85DB782A7AB15F00C00994 /* 2.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 2.txt; sourceTree = "<group>"; };
 		5D85DB7A2A7AB3CD00C00994 /* 3.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 3.txt; sourceTree = "<group>"; };
+		5D85DB7D2A7B1EE100C00994 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		5D85DB7F2A7B1EF800C00994 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5D85DB812A7B1F0A00C00994 /* UserConfigs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserConfigs.swift; sourceTree = "<group>"; };
+		5D85DB832A7B201900C00994 /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
+		5D85DB852A7B206300C00994 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5D85DB872A7B20A600C00994 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		5D85DB892A7B267000C00994 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		5D85DB8C2A7B284200C00994 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		5D85DB8E2A7B284C00C00994 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		5D85DB902A7B285400C00994 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		5DC927DA2A7A80FF001A4F41 /* MusicPlaylist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicPlaylist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC927DD2A7A80FF001A4F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5DC927E12A7A80FF001A4F41 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5DC927E42A7A80FF001A4F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5DC927E12A7A80FF001A4F41 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5DC927E62A7A8100001A4F41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DC927E92A7A8100001A4F41 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DC927EB2A7A8100001A4F41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +136,8 @@
 		5D4A61E22A7A848D00778C3B /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5D85DB7F2A7B1EF800C00994 /* Constants.swift */,
+				5D85DB812A7B1F0A00C00994 /* UserConfigs.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -134,6 +154,8 @@
 		5D4A61E42A7A84E400778C3B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5D85DB8B2A7B282800C00994 /* Settings */,
+				5D85DB7C2A7B1E6600C00994 /* LaunchScreen */,
 				5D4A61EB2A7A891600778C3B /* Search */,
 				5D4A61EA2A7A890C00778C3B /* Favourite */,
 			);
@@ -143,7 +165,7 @@
 		5D4A61E52A7A855F00778C3B /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
-				5DC927E32A7A80FF001A4F41 /* Main.storyboard */,
+				5D85DB852A7B206300C00994 /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -158,8 +180,9 @@
 		5D4A61EB2A7A891600778C3B /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				5DC927E12A7A80FF001A4F41 /* ViewController.swift */,
-				5D4A61F12A7A919200778C3B /* ViewModel.swift */,
+				5DC927E12A7A80FF001A4F41 /* SearchViewController.swift */,
+				5D4A61F12A7A919200778C3B /* SearchViewModel.swift */,
+				5D85DB832A7B201900C00994 /* SearchBuilder.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -169,6 +192,7 @@
 			children = (
 				5D4A61EF2A7A8A4000778C3B /* Encodable.swift */,
 				5D4A61F62A7A94B300778C3B /* String.swift */,
+				5D85DB872A7B20A600C00994 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -181,6 +205,24 @@
 				5D4A61F42A7A91B900778C3B /* 1.txt */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		5D85DB7C2A7B1E6600C00994 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5D85DB7D2A7B1EE100C00994 /* LaunchScreenViewController.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		5D85DB8B2A7B282800C00994 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				5D85DB8C2A7B284200C00994 /* SettingsBuilder.swift */,
+				5D85DB8E2A7B284C00C00994 /* SettingsViewController.swift */,
+				5D85DB902A7B285400C00994 /* SettingsViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		5DC927D12A7A80FF001A4F41 = {
@@ -214,6 +256,7 @@
 				5D4A61E42A7A84E400778C3B /* Modules */,
 				5D4A61E52A7A855F00778C3B /* Storyboards */,
 				5DC927DD2A7A80FF001A4F41 /* AppDelegate.swift */,
+				5D85DB892A7B267000C00994 /* SceneDelegate.swift */,
 				5DC927E62A7A8100001A4F41 /* Assets.xcassets */,
 				5DC927E82A7A8100001A4F41 /* LaunchScreen.storyboard */,
 				5DC927EB2A7A8100001A4F41 /* Info.plist */,
@@ -364,7 +407,7 @@
 			files = (
 				5DC927EA2A7A8100001A4F41 /* LaunchScreen.storyboard in Resources */,
 				5DC927E72A7A8100001A4F41 /* Assets.xcassets in Resources */,
-				5DC927E52A7A80FF001A4F41 /* Main.storyboard in Resources */,
+				5D85DB862A7B206300C00994 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,11 +557,20 @@
 			files = (
 				5D4A61E72A7A85E600778C3B /* MusicListRequest.swift in Sources */,
 				5D4A61F02A7A8A4000778C3B /* Encodable.swift in Sources */,
-				5DC927E22A7A80FF001A4F41 /* ViewController.swift in Sources */,
+				5D85DB8D2A7B284200C00994 /* SettingsBuilder.swift in Sources */,
+				5D85DB882A7B20A600C00994 /* UIViewController.swift in Sources */,
+				5D85DB822A7B1F0A00C00994 /* UserConfigs.swift in Sources */,
+				5D85DB7E2A7B1EE100C00994 /* LaunchScreenViewController.swift in Sources */,
+				5DC927E22A7A80FF001A4F41 /* SearchViewController.swift in Sources */,
+				5D85DB842A7B201900C00994 /* SearchBuilder.swift in Sources */,
+				5D85DB8F2A7B284C00C00994 /* SettingsViewController.swift in Sources */,
 				5DC927DE2A7A80FF001A4F41 /* AppDelegate.swift in Sources */,
+				5D85DB8A2A7B267000C00994 /* SceneDelegate.swift in Sources */,
 				5D4A61ED2A7A899A00778C3B /* MusicListResponse.swift in Sources */,
 				5D4A61F72A7A94B300778C3B /* String.swift in Sources */,
-				5D4A61F22A7A919200778C3B /* ViewModel.swift in Sources */,
+				5D4A61F22A7A919200778C3B /* SearchViewModel.swift in Sources */,
+				5D85DB802A7B1EF800C00994 /* Constants.swift in Sources */,
+				5D85DB912A7B285400C00994 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -555,14 +607,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5DC927E32A7A80FF001A4F41 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5DC927E42A7A80FF001A4F41 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5DC927E82A7A8100001A4F41 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -699,7 +743,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MusicPlaylist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -728,7 +772,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MusicPlaylist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
