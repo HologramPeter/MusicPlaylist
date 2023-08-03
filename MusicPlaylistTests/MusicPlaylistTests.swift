@@ -19,6 +19,7 @@ final class MusicPlaylistTests: XCTestCase {
     }
     
     func validateMusicList(_ list: MusicListResponse) throws{
+        print(list.results.count)
         for item in list.results{
             if item.wrapperType == .unsupported{ continue }
             XCTAssertNotNil(item.name)

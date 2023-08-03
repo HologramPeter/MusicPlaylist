@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class SettingsViewController: UIViewController {
-    var viewModel: SettingsViewModel!
+    var viewModel = SettingsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()

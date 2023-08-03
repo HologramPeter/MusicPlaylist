@@ -24,4 +24,16 @@ extension UIViewController {
         
         return instantiateFromNib()
     }
+    
+    func showErrorMessage(_ message: String){
+        AlertHelper.present(in: self, title: "Error", message: message)
+    }
+    
+    func checkInternetConnection(_ action: () -> Void){
+        if Connectivity.isConnectedToInternet {
+            action()
+        } else {
+            showErrorMessage("No Internet Connection!")
+        }
+    }
 }

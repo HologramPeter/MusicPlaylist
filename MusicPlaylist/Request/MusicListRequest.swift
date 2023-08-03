@@ -13,7 +13,7 @@ class MusicListRequest{
     var pageInd: Int
     var term: String
     
-    init(pageInd: Int = 0, term: String) {
+    init(pageInd: Int = 0, term: String = "") {
         self.pageInd = pageInd
         self.term = term
     }
@@ -24,8 +24,8 @@ class MusicListRequest{
     
     var url: URL?{
         var queryItems = [
-//            URLQueryItem(name: "offset", value: "\(offset)"),
-            URLQueryItem(name: "limit", value: "\(offset+Self.LIMIT)")
+            URLQueryItem(name: "offset", value: "\(offset)"),
+            URLQueryItem(name: "limit", value: "\(Self.LIMIT)")
 //            URLQueryItem(name: "lang", value: "")
         ]
         
@@ -43,7 +43,7 @@ class MusicListRequest{
         return urlComponents.url
     }
     
-    func request(completion: @escaping (Result<MusicListResponse, Error>) -> Void){
+    func request(completion: @escaping (Result<MusicListResponse, String>) -> Void){
         guard let url = url else{
             completion(.failure("Unable to construct url"))
             return
@@ -55,7 +55,7 @@ class MusicListRequest{
                 case .success(let response):
                     completion(.success(response))
                 case .failure(let afError):
-                    completion(.failure(afError))
+                    completion(.failure(afError.localizedDescription))
                 }
             }
     }
