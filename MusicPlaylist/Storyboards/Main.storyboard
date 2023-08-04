@@ -28,6 +28,9 @@
                                             <constraint firstAttribute="height" constant="50" id="qtV-FC-DDN"/>
                                         </constraints>
                                         <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="search_desc_bar"/>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <outlet property="delegate" destination="Y6W-OH-hqX" id="YqD-lk-hkL"/>
                                         </connections>
@@ -136,7 +139,11 @@
                             <constraint firstItem="xsf-ml-Jfq" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="vOV-Ov-EIA"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Mms-lr-RKA"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="Mms-lr-RKA">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="search_title"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -157,33 +164,39 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HJ3-Ws-TlB">
                                         <rect key="frame" x="8" y="8" width="377" height="50"/>
                                         <subviews>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="4th-vn-1gx">
+                                                <rect key="frame" x="127" y="0.0" width="250" height="51"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="Zph-z2-70c"/>
+                                                </constraints>
+                                                <segments>
+                                                    <segment title=""/>
+                                                    <segment title=""/>
+                                                    <segment title=""/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="updateLanguage:" destination="oRo-xN-t5Q" eventType="valueChanged" id="J8o-7L-c1L"/>
+                                                </connections>
+                                            </segmentedControl>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Language" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U0-7i-r3s">
-                                                <rect key="frame" x="8" y="0.0" width="215.33333333333334" height="50"/>
+                                                <rect key="frame" x="8" y="0.0" width="119" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="settings_title_lang"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tPn-7o-hRK">
-                                                <rect key="frame" x="233.33333333333337" y="0.0" width="143.66666666666663" height="50"/>
-                                                <menu key="menu" id="8eO-5Z-vHp">
-                                                    <children>
-                                                        <command title="Item 1" id="AkI-2U-gN4"/>
-                                                        <command title="Item 2" id="wh9-56-I1j"/>
-                                                    </children>
-                                                </menu>
-                                                <state key="normal" title="English"/>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="4th-vn-1gx" firstAttribute="leading" secondItem="7U0-7i-r3s" secondAttribute="trailing" id="2Jw-au-c2v"/>
                                             <constraint firstItem="7U0-7i-r3s" firstAttribute="top" secondItem="HJ3-Ws-TlB" secondAttribute="top" id="2Kg-eQ-InS"/>
-                                            <constraint firstAttribute="trailing" secondItem="tPn-7o-hRK" secondAttribute="trailing" id="JHT-T4-UY0"/>
                                             <constraint firstItem="7U0-7i-r3s" firstAttribute="leading" secondItem="HJ3-Ws-TlB" secondAttribute="leading" constant="8" id="KzR-YV-HEz"/>
                                             <constraint firstAttribute="bottom" secondItem="7U0-7i-r3s" secondAttribute="bottom" id="SZi-wZ-Wju"/>
-                                            <constraint firstItem="tPn-7o-hRK" firstAttribute="top" secondItem="HJ3-Ws-TlB" secondAttribute="top" id="YgD-CI-K2N"/>
-                                            <constraint firstItem="7U0-7i-r3s" firstAttribute="width" secondItem="tPn-7o-hRK" secondAttribute="width" multiplier="3:2" id="ZiA-xE-kS1"/>
-                                            <constraint firstAttribute="bottom" secondItem="tPn-7o-hRK" secondAttribute="bottom" id="fY7-7z-Y9U"/>
-                                            <constraint firstItem="tPn-7o-hRK" firstAttribute="leading" secondItem="7U0-7i-r3s" secondAttribute="trailing" constant="10" id="pba-S3-EaX"/>
+                                            <constraint firstItem="4th-vn-1gx" firstAttribute="top" secondItem="HJ3-Ws-TlB" secondAttribute="top" id="bgH-cu-ZK7"/>
+                                            <constraint firstAttribute="trailing" secondItem="4th-vn-1gx" secondAttribute="trailing" id="iiU-Xo-Fak"/>
+                                            <constraint firstAttribute="bottom" secondItem="4th-vn-1gx" secondAttribute="bottom" id="wY5-Ku-gvA"/>
                                             <constraint firstAttribute="height" constant="50" id="zw7-LO-Ohs"/>
                                         </constraints>
                                     </view>
@@ -201,6 +214,12 @@
                                                 <state key="normal" title="Clear Favourite">
                                                     <color key="titleColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="settings_title_reset"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="resetFavourite" destination="oRo-xN-t5Q" eventType="touchUpInside" id="y0G-qM-1P5"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -232,8 +251,15 @@
                             <constraint firstItem="KXd-j7-RLc" firstAttribute="bottom" secondItem="unx-Vv-otk" secondAttribute="bottom" id="zKl-u5-2Jr"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="3UK-hO-oRI"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="gear" catalog="system" id="3UK-hO-oRI">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="settings_title"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="segmentLanguage" destination="4th-vn-1gx" id="hHf-b4-Lg3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OpN-ye-bKF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -252,12 +278,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zlc-SF-HyI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2462" y="-118"/>
+            <point key="canvasLocation" x="-2505" y="-118"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Z0x-O2-B4N">
             <objects>
-                <tabBarController id="d2v-ft-Vrz" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="UITabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d2v-ft-Vrz" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kno-r2-rO1">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -393,7 +419,11 @@
                             <constraint firstItem="yZv-zC-2v4" firstAttribute="top" secondItem="PSd-At-wqh" secondAttribute="top" id="qeE-ZG-AyN"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Favourites" image="star" catalog="system" id="tLX-Z6-p4e"/>
+                    <tabBarItem key="tabBarItem" title="Favourites" image="star" catalog="system" id="tLX-Z6-p4e">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="fav_title"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OM6-mB-Yuc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

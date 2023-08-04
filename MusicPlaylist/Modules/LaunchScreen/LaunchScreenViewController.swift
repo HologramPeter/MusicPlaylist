@@ -26,9 +26,11 @@ class LaunchScreenViewController: UIViewController {
         } else {
             // Fallback on earlier versions
         }
-        
-        let searchVC = SearchBuilder.build()
-        self.present(searchVC, animated: false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        let tabBar = TabBarBuilder.build()
+        self.present(tabBar, animated: false)
     }
 
 }
