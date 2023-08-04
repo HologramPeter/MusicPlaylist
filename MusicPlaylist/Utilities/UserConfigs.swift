@@ -10,7 +10,7 @@ import Foundation
 @propertyWrapper
 struct UserDefaultsWrapper<T> {
     let key: String
-    let defaultValue: T
+    let defaultValue: T?
     let userDefaults: UserDefaults = .standard
     
     var wrappedValue: T? {
@@ -35,7 +35,7 @@ struct UserDefaultsWrapper<T> {
 @propertyWrapper
 struct UserDefaultsDataWrapper<T: Codable>{
     let key: String
-    let defaultValue: T
+    let defaultValue: T?
     let userDefaults: UserDefaults = .standard
     
     var wrappedValue: T? {
@@ -61,4 +61,7 @@ struct UserDefaultsDataWrapper<T: Codable>{
 struct UserConfigs {
     @UserDefaultsWrapper(key: "FavouriteMusicList", defaultValue: [])
     static var favouriteList: [MusicInfo]?
+    
+    @UserDefaultsWrapper(key: "Language", defaultValue: nil)
+    static var languageSymbol: String?
 }

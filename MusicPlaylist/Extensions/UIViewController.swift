@@ -26,14 +26,14 @@ extension UIViewController {
     }
     
     func showErrorMessage(_ message: String){
-        AlertHelper.present(in: self, title: "Error", message: message)
+        AlertHelper.present(in: self, title: "alert_error".localized, message: message)
     }
     
     func checkInternetConnection(_ action: () -> Void){
         if Connectivity.isConnectedToInternet {
             action()
         } else {
-            showErrorMessage("No Internet Connection!")
+            showErrorMessage("alert_desc_offline".localized)
         }
     }
 }
