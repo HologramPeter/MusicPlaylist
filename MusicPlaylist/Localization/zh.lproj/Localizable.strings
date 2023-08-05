@@ -1,0 +1,29 @@
+/* 
+  Localizable.strings
+  MusicPlaylist
+
+  Created by Peter Ho on 4/8/2023.
+  
+*/
+
+"alert_ok" = "OK";
+"alert_yes" = "是";
+"alert_no" = "否";
+"alert_cancel" = "取消";
+
+"alert_title_error" = "錯誤";
+"alert_desc_offline" = "沒有網絡連接。";
+"alert_title_reset" = "重置收藏";
+"alert_desc_reset" = "確定要重置？";
+"alert_title_lang" = "語言";
+"alert_desc_lang" = "请重启App以更换语言";
+
+"fav_title" = "收藏";
+"search_title" = "搜尋";
+"settings_title" = "設定";
+
+"search_hint_search" = "輸入曲目、藝術家或收藏...";
+"search_hint_filter" = "篩選作者或國家...";
+
+"settings_title_lang" = "語言";
+"settings_title_reset" = "重置收藏";

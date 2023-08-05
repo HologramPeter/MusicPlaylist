@@ -1,4 +1,4 @@
-module Pods_MusicPlaylist {
+framework module Pods_MusicPlaylist {
   umbrella header "Pods-MusicPlaylist-umbrella.h"
 
   export *

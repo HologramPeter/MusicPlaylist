@@ -1,0 +1,31 @@
+/* 
+  Localizable.strings
+  MusicPlaylist
+
+  Created by Peter Ho on 4/8/2023.
+  
+*/
+
+"alert_ok" = "OK";
+"alert_yes" = "Yes";
+"alert_no" = "No";
+"alert_cancel" = "cancel";
+
+"alert_title_error" = "Error";
+"alert_desc_offline" = "No internet connection.";
+"alert_title_reset" = "Reset Favourite";
+"alert_desc_reset" = "Are you sure to reset?";
+"alert_title_lang" = "Language Changed";
+"alert_desc_lang" = "Please restart application.";
+
+"fav_title" = "Favourite";
+"search_title" = "Search";
+"settings_title" = "Settings";
+
+"search_hint_search" = "Enter track, artist or collection...";
+"search_hint_filter" = "Filter by artist or country...";
+
+"settings_title_lang" = "Language";
+"settings_title_reset" = "Reset Favourite";
+
+
