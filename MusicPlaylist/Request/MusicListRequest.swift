@@ -23,16 +23,13 @@ class MusicListRequest{
     }
     
     var url: URL?{
-        var queryItems = [
+        let queryItems = [
+            URLQueryItem(name: "media", value: "music"),
             URLQueryItem(name: "offset", value: "\(offset)"),
-            URLQueryItem(name: "limit", value: "\(Self.LIMIT)")
-//            URLQueryItem(name: "lang", value: "")
+            URLQueryItem(name: "limit", value: "\(Self.LIMIT)"),
+            URLQueryItem(name: "lang", value: LanguageLocalizer.currentLanguage.queryCode),
+            URLQueryItem(name: "term", value: term)
         ]
-        
-        if term != nil{
-            queryItems.append(URLQueryItem(name: "term", value: term))
-        }
-        
         
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -49,7 +46,7 @@ class MusicListRequest{
             return
         }
         print(url.absoluteString)
-        AF.request(url, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: nil)
+        AF.request(url, method: .get, encoding: JSONEncoding.default)
             .responseDecodable(of: MusicListResponse.self) { response in
                 switch response.result {
                 case .success(let response):
@@ -58,5 +55,19 @@ class MusicListRequest{
                     completion(.failure(afError.localizedDescription))
                 }
             }
+    }
+}
+
+
+extension LanguageSymbols{
+    var queryCode: String{
+        switch self {
+        case .en:
+            return "en_US"
+        case .tc:
+            return "zh"
+        case .sc:
+            return "zh_CN"
+        }
     }
 }

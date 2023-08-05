@@ -22,7 +22,8 @@
 "search_title" = "搜尋";
 "settings_title" = "設定";
 
-"search_desc_bar" = "輸入曲目、藝術家或收藏...";
+"search_hint_search" = "輸入曲目、藝術家或收藏...";
+"search_hint_filter" = "篩選作者或國家...";
 
 "settings_title_lang" = "語言";
 "settings_title_reset" = "重置收藏";

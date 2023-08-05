@@ -8,5 +8,11 @@
 import Foundation
 
 class SettingsViewModel{
+    func resetFavourite(){
+        UserConfigs.favouriteList = nil
+    }
     
+    func setLanguage(_ lang: LanguageSymbols){
+        UserConfigs.languageSymbol = lang.rawValue
+    }
 }

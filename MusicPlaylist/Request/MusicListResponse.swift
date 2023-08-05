@@ -12,7 +12,7 @@ struct MusicListResponse: Decodable{
     let results: [MusicInfo]
 }
 
-struct MusicInfo: Decodable{
+struct MusicInfo: Codable{
     let wrapperType: MusicWrapperType
     
     let trackExplicitness: MusicExplicitness?
@@ -37,6 +37,8 @@ struct MusicInfo: Decodable{
     
     let previewURL: String?
     let trackTimeMillis: Int?
+    
+    let country: String?
 }
 
 extension MusicInfo{
@@ -49,7 +51,7 @@ extension MusicInfo{
         case .artist:
             return artistName
         case .unsupported:
-            return nil
+            return "Unsupported Media Type"
         }
     }
     
@@ -91,9 +93,13 @@ extension MusicInfo{
             return nil
         }
     }
+    
+    var primaryKey: String?{
+        return trackViewUrl
+    }
 }
 
-enum MusicWrapperType: String, Decodable{
+enum MusicWrapperType: String, Codable{
     case track
     case collection
     case artist
@@ -113,13 +119,13 @@ enum MusicWrapperType: String, Decodable{
     }
 }
 
-enum MusicExplicitness: String, Decodable{
+enum MusicExplicitness: String, Codable{
     case explicit
     case cleaned
     case notExplicit
 }
 
-enum MusicKind: String, Decodable{
+enum MusicKind: String, Codable{
     case book
     case album
     case coachedAudio = "coached-audio"

@@ -34,11 +34,15 @@ class LanguageLocalizer: NSObject {
         MethodSwizzleGivenClassName(cls: Bundle.self, originalSelector: #selector(Bundle.localizedString(forKey:value:table:)), overrideSelector: #selector(Bundle.specialLocalizedStringForKey(key:value:table:)))
     }
     
+    static var currentLanguage: LanguageSymbols{
+        return LanguageSymbols.init(rawValue: UserConfigs.languageSymbol ?? "") ?? .en
+    }
+    
 }
 
 extension Bundle {
     @objc func specialLocalizedStringForKey(key: String, value: String?, table tableName: String?) -> String {
-        let currentLanguage = LanguageSymbols.init(rawValue: UserConfigs.languageSymbol ?? "") ?? .en
+        let currentLanguage = LanguageLocalizer.currentLanguage
         var bundle = Bundle();
         
         if let _path = Bundle.main.path(forResource: currentLanguage.rawValue, ofType: "lproj") {

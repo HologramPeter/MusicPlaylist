@@ -22,7 +22,8 @@
 "search_title" = "Search";
 "settings_title" = "Settings";
 
-"search_desc_bar" = "Enter track, artist or collection...";
+"search_hint_search" = "Enter track, artist or collection...";
+"search_hint_filter" = "Filter by artist or country...";
 
 "settings_title_lang" = "Language";
 "settings_title_reset" = "Reset Favourite";
