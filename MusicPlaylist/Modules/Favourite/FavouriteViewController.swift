@@ -20,11 +20,7 @@ class FavouriteViewController: UIViewController{
     }
     
     func setupUI(){
-        collectionView.backgroundColor = Constants.appBackgroundColor
-        collectionView.register(UINib(nibName: "MusicCell", bundle: nil), forCellWithReuseIdentifier: MusicCell.identifier)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.reloadData()
+        setupCollectionView()
     }
     
     func removeMusic(music: MusicInfo){
@@ -35,6 +31,14 @@ class FavouriteViewController: UIViewController{
 
 
 extension FavouriteViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func setupCollectionView(){
+        collectionView.backgroundColor = Constants.appBackgroundColor
+        collectionView.register(UINib(nibName: "MusicCell", bundle: nil), forCellWithReuseIdentifier: MusicCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.reloadData()
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.data.count
     }

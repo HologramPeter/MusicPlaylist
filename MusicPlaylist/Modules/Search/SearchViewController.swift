@@ -20,25 +20,50 @@ class SearchViewController: UIViewController {
     }
     
     func setupUI(){
-        collectionView.delegate = self
-        collectionView.dataSource = self
+        setupCollectionView()
+        setupSearchBar()
     }
     
     func bind(){
         viewModel.onError = showErrorMessage
-    }
-
-    @IBAction func searchForMusic(_ sender: UISearchBar?){
-        if let term = sender?.text{
-            checkInternetConnection {
-                viewModel.search(term: term)
+        viewModel.loading.bind{ loading in
+            if !loading{
+                self.collectionView.reloadData()
             }
         }
     }
+}
 
+extension SearchViewController: UISearchBarDelegate{
+    func setupSearchBar(){
+        searchBar.delegate = self
+    }
+    
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        search(searchBar)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        search(searchBar)
+    }
+    
+    func search(_ searchBar: UISearchBar){
+        guard let term = searchBar.text else {return}
+        checkInternetConnection {
+            viewModel.search(term: term)
+        }
+    }
 }
 
 extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func setupCollectionView(){
+        collectionView.backgroundColor = Constants.appBackgroundColor
+        collectionView.register(UINib(nibName: "MusicCell", bundle: nil), forCellWithReuseIdentifier: MusicCell.identifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.reloadData()
+    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.data.count
     }
@@ -62,4 +87,12 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
         }
         return UICollectionViewCell()
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if indexPath.section == viewModel.data.count - 1
+        && indexPath.row == viewModel.data[indexPath.section].count - 1 && !viewModel.loading.value && Connectivity.isConnectedToInternet{
+            viewModel.loadMoreData()
+        }
+    }
+
 }
