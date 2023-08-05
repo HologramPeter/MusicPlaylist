@@ -16,6 +16,11 @@ class LaunchScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         let tabBar = TabBarBuilder.build()
+        if UserConfigs.favouriteList?.count == 0{
+            tabBar.selectedIndex = 1
+        }else{
+            tabBar.selectedIndex = 0
+        }
         self.present(tabBar, animated: false)
     }
 

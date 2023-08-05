@@ -20,19 +20,35 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="xsf-ml-Jfq">
                                 <rect key="frame" x="0.0" y="59" width="393" height="710"/>
                                 <subviews>
-                                    <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="hfZ-16-yh6">
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x3m-4H-JnI">
                                         <rect key="frame" x="8" y="8" width="377" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="qtV-FC-DDN"/>
-                                        </constraints>
-                                        <textInputTraits key="textInputTraits"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="search_desc_bar"/>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="k5p-6A-fDB"/>
-                                        </connections>
-                                    </searchBar>
+                                        <subviews>
+                                            <searchBar contentMode="redraw" text="" translatesAutoresizingMaskIntoConstraints="NO" id="hfZ-16-yh6">
+                                                <rect key="frame" x="0.0" y="0.0" width="327" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="qtV-FC-DDN"/>
+                                                </constraints>
+                                                <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="xibLocKey" value="search_hint_search"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="k5p-6A-fDB"/>
+                                                </connections>
+                                            </searchBar>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EqF-iR-cQp">
+                                                <rect key="frame" x="327" y="0.0" width="50" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="EqF-iR-cQp" secondAttribute="height" multiplier="1:1" id="SKC-Hb-MdK"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" image="line.3.horizontal.decrease.circle" catalog="system"/>
+                                                <connections>
+                                                    <action selector="toggleFilterWithSender:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="hmZ-UP-JSf"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UdZ-U1-wbq">
                                         <rect key="frame" x="8" y="58" width="377" height="644"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -64,6 +80,7 @@
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnFilter" destination="EqF-iR-cQp" id="H4M-ht-hMK"/>
                         <outlet property="collectionView" destination="UdZ-U1-wbq" id="dvN-3e-iqJ"/>
                         <outlet property="searchBar" destination="hfZ-16-yh6" id="VOX-7f-Szx"/>
                     </connections>
@@ -272,6 +289,7 @@
     </scenes>
     <resources>
         <image name="gear" catalog="system" width="128" height="122"/>
+        <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="123"/>
         <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="star" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">

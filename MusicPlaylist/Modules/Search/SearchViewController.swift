@@ -9,7 +9,12 @@ import UIKit
 
 class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var btnFilter: UIButton!
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    typealias `Self` = SearchViewController
+    static let filterOnImage = UIImage(named: "filter.fill")
+    static let filterOffImage = UIImage(named: "filter")
     
     var viewModel = SearchViewModel()
     
@@ -26,6 +31,8 @@ class SearchViewController: UIViewController {
     func setupUI(){
         setupCollectionView()
         setupSearchBar()
+        btnFilter.setTitle("", for: .normal)
+        btnFilter.setImage(Self.filterOffImage, for: .normal)
     }
     
     func bind(){
@@ -34,6 +41,19 @@ class SearchViewController: UIViewController {
             if !loading{
                 self.collectionView.reloadData()
             }
+        }
+    }
+    
+    @IBAction func toggleFilter(sender: Any){
+        viewModel.filterMode = !viewModel.filterMode
+        btnFilter.setImage(viewModel.filterMode ? Self.filterOnImage : Self.filterOffImage, for: .normal)
+        searchBar.endEditing(true)
+        if viewModel.filterMode{
+            searchBar.placeholder = "search_hint_filter".localized
+            searchBar.text = viewModel.filterStr
+        }else{
+            searchBar.placeholder = "search_hint_search".localized
+            searchBar.text = viewModel.request.term
         }
     }
 }
@@ -52,9 +72,14 @@ extension SearchViewController: UISearchBarDelegate{
     }
     
     func search(_ searchBar: UISearchBar){
-        guard let term = searchBar.text else {return}
-        checkInternetConnection {
-            viewModel.search(term: term)
+        searchBar.endEditing(true)
+        if viewModel.filterMode{
+            viewModel.filter(searchBar.text)
+            collectionView.reloadData()
+        }else{
+            checkInternetConnection {
+                viewModel.search(searchBar.text)
+            }
         }
     }
 }
@@ -75,11 +100,11 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return viewModel.data.count
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.data[section].count
+        return viewModel.displayData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -92,7 +117,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MusicCell.identifier, for: indexPath) as? MusicCell {
-            let info = viewModel.data[indexPath.section][indexPath.row]
+            let info = viewModel.displayData[indexPath.row]
             let image = viewModel.images[info.artworkUrl60 ?? ""]
             let isFavourite = CommonMethods.isFavourite(info)
             cell.setup(delegate: self, info: info, image: image, isFavourite: isFavourite)
@@ -102,8 +127,7 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.section == viewModel.data.count - 1
-        && indexPath.row == viewModel.data[indexPath.section].count - 1 && !viewModel.loading.value && Connectivity.isConnectedToInternet{
+        if indexPath.row == viewModel.displayData.count - 1 && !viewModel.loading.value && Connectivity.isConnectedToInternet{
             viewModel.loadMoreData()
         }
     }

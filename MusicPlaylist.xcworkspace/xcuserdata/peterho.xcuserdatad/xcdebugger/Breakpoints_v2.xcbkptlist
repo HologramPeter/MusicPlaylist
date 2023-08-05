@@ -36,53 +36,5 @@
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "B73CC313-D1AD-4EED-9A8C-0E6404B894AD"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MusicPlaylist/Utilities/UserConfigs.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "wrappedValue"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "B73CC313-D1AD-4EED-9A8C-0E6404B894AD - f2559409ec66f66f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MusicPlaylist.UserDefaultsDataWrapper.wrappedValue.getter : Swift.Optional&lt;&#x3c4;_0_0&gt;"
-                  moduleName = "MusicPlaylist"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/peterho/Documents/Others/Playground/MusicPlaylist/Utilities/UserConfigs.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "280">
-               </Location>
-               <Location
-                  uuid = "B73CC313-D1AD-4EED-9A8C-0E6404B894AD - f2559409ec66f66f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "MusicPlaylist.UserDefaultsDataWrapper.wrappedValue.getter : Swift.Optional&lt;&#x3c4;_0_0&gt;"
-                  moduleName = "MusicPlaylist"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/peterho/Documents/Others/Playground/MusicPlaylist/Utilities/UserConfigs.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
-                  offsetFromSymbolStart = "584">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

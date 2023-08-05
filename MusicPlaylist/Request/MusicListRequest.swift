@@ -27,7 +27,7 @@ class MusicListRequest{
             URLQueryItem(name: "media", value: "music"),
             URLQueryItem(name: "offset", value: "\(offset)"),
             URLQueryItem(name: "limit", value: "\(Self.LIMIT)"),
-            URLQueryItem(name: "country", value: LanguageLocalizer.currentLanguage.queryCode),
+            URLQueryItem(name: "lang", value: LanguageLocalizer.currentLanguage.queryCode),
             URLQueryItem(name: "term", value: term)
         ]
         
@@ -63,11 +63,11 @@ extension LanguageSymbols{
     var queryCode: String{
         switch self {
         case .en:
-            return "us"
+            return "en_US"
         case .tc:
-            return "hk"
+            return "zh"
         case .sc:
-            return"cn"
+            return "zh_CN"
         }
     }
 }

@@ -37,6 +37,8 @@ struct MusicInfo: Codable{
     
     let previewURL: String?
     let trackTimeMillis: Int?
+    
+    let country: String?
 }
 
 extension MusicInfo{
