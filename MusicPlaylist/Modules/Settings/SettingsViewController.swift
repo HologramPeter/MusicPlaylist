@@ -37,14 +37,14 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func resetFavourite(){
-        AlertHelper.present(in: self, title: "alert_title_reset".localized, message: "alert_desc_reset".localized, yesActionTitle: "alert_yes".localized, noActionTitle:  "alert_no".localized, yesHandler: {
-            UserConfigs.favouriteList = nil
+        AlertHelper.present(in: self, title: "alert_title_reset".localized, message: "alert_desc_reset".localized, yesActionTitle: "alert_yes".localized, noActionTitle:  "alert_no".localized, noActionStyle: .cancel, yesHandler: {
+            self.viewModel.resetFavourite()
         })
     }
     
     @IBAction func updateLanguage(_ sender: Any) {
         let lang = LanguageSymbols.allCases[segmentLanguage.selectedSegmentIndex]
-        UserConfigs.languageSymbol = lang.rawValue
+        viewModel.setLanguage(lang)
         AlertHelper.present(in: self, title: "alert_title_lang".localized, message: "alert_desc_lang".localized)
     }
 }

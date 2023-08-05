@@ -9,7 +9,7 @@ import Foundation
 
 class SearchViewModel{
     var loading = Observable<Bool>(false)
-    var data: [MusicInfo] = []
+    var data: [[MusicInfo]] = []
     var request: MusicListRequest = MusicListRequest()
     
     var onError: ((String) -> Void)?
@@ -21,7 +21,7 @@ class SearchViewModel{
         request.request(completion: { [weak self] result in
             switch result {
             case .success(let response):
-                self?.data = response.results
+                self?.data = [response.results]
             case .failure(let errorMsg):
                 self?.onError?(errorMsg)
             }
@@ -35,7 +35,7 @@ class SearchViewModel{
         request.request(completion: { [weak self] result in
             switch result {
             case .success(let response):
-                self?.data.append(contentsOf: response.results)
+                self?.data.append(response.results)
             case .failure(let errorMsg):
                 self?.onError?(errorMsg)
             }

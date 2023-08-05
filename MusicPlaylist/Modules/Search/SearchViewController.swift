@@ -20,7 +20,8 @@ class SearchViewController: UIViewController {
     }
     
     func setupUI(){
-        
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     func bind(){
@@ -37,27 +38,28 @@ class SearchViewController: UIViewController {
 
 }
 
-extension SearchViewController: UICollectionViewDelegate{
-    private func collectionView(_ collectionView: UICollectionViewDelegate, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.data.count - 1 && !viewModel.loading.value && Connectivity.isConnectedToInternet{
-            viewModel.loadMoreData()
-        }
-     }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return viewModel.data.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        return UICollectionViewCell()
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return viewModel.data[section].count
     }
     
-    private func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 50)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MusicCell.identifier, for: indexPath) as? MusicCell {
-            cell.setup(viewModel.data[indexPath.row])
+            cell.setup(viewModel.data[indexPath.section][indexPath.row])
             return cell
         }
         return UICollectionViewCell()
     }
 }
-

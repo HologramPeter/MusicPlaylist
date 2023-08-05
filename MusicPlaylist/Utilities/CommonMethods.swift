@@ -9,7 +9,7 @@ import Foundation
 
 struct CommonMethods{
     static func isFavourite(_ info: MusicInfo) -> Bool{
-        return UserConfigs.favouriteList?.firstIndex(where: {$0.viewURL == info.viewURL}) != nil
+        return UserConfigs.favouriteList?.firstIndex(where: {$0.primaryKey == info.primaryKey}) != nil
     }
     
     static func setFavourite(_ info: MusicInfo, on: Bool = true){
@@ -18,7 +18,7 @@ struct CommonMethods{
                 UserConfigs.favouriteList?.append(info)
             }
         }else{
-            UserConfigs.favouriteList?.removeAll(where: {$0.viewURL == info.viewURL})
+            UserConfigs.favouriteList?.removeAll(where: {$0.primaryKey == info.primaryKey})
         }
     }
 }

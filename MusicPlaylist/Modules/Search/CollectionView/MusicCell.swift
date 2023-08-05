@@ -12,7 +12,6 @@ class MusicCell: UICollectionViewCell{
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
-    @IBOutlet weak var remarksLbl: UILabel!
     @IBOutlet weak var btnFavourite: UIButton!
     
     typealias `Self` = MusicCell
@@ -21,8 +20,8 @@ class MusicCell: UICollectionViewCell{
     var isFavourite: Bool = false
 
     func setup(_ info: MusicInfo) {
-        titleLbl.text = info.name
-        isFavourite = CommonMethods.isFavourite(info)
+//        titleLbl.text = info.name
+//        isFavourite = CommonMethods.isFavourite(info)
         //setup btns and image
         // downloadImage(from: )
         //URL(string: info.viewURL?? "")

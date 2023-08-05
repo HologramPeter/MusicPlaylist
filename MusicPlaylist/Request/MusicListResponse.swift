@@ -91,6 +91,10 @@ extension MusicInfo{
             return nil
         }
     }
+    
+    var primaryKey: String?{
+        return viewURL
+    }
 }
 
 enum MusicWrapperType: String, Decodable{
