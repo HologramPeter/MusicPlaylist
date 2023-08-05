@@ -19,6 +19,10 @@ class SearchViewController: UIViewController {
         bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     func setupUI(){
         setupCollectionView()
         setupSearchBar()
@@ -55,7 +59,13 @@ extension SearchViewController: UISearchBarDelegate{
     }
 }
 
-extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MusicCellDelegate{
+    func onToggle(info: MusicInfo?, isFavourite: Bool) {
+        if let info = info{
+            CommonMethods.setFavourite(info, on: isFavourite)
+        }
+    }
+    
     func setupCollectionView(){
         collectionView.backgroundColor = Constants.appBackgroundColor
         collectionView.register(UINib(nibName: "MusicCell", bundle: nil), forCellWithReuseIdentifier: MusicCell.identifier)
@@ -82,7 +92,10 @@ extension SearchViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MusicCell.identifier, for: indexPath) as? MusicCell {
-            cell.setup(viewModel.data[indexPath.section][indexPath.row])
+            let info = viewModel.data[indexPath.section][indexPath.row]
+            let image = viewModel.images[info.artworkUrl60 ?? ""]
+            let isFavourite = CommonMethods.isFavourite(info)
+            cell.setup(delegate: self, info: info, image: image, isFavourite: isFavourite)
             return cell
         }
         return UICollectionViewCell()

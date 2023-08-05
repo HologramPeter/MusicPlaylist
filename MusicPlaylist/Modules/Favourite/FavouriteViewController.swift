@@ -17,10 +17,24 @@ class FavouriteViewController: UIViewController{
     
     override func viewDidLoad() {
         setupUI()
+        bind()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        viewModel.reload()
+        collectionView.reloadData()
     }
     
     func setupUI(){
         setupCollectionView()
+    }
+    
+    func bind(){
+        viewModel.loading.bind{ loading in
+            if !loading{
+                self.collectionView.reloadData()
+            }
+        }
     }
     
     func removeMusic(music: MusicInfo){
@@ -30,7 +44,13 @@ class FavouriteViewController: UIViewController{
 }
 
 
-extension FavouriteViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+extension FavouriteViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, MusicCellDelegate{
+    func onToggle(info: MusicInfo?, isFavourite: Bool) {
+        if let info = info{
+            CommonMethods.setFavourite(info, on: isFavourite)
+        }
+    }
+    
     func setupCollectionView(){
         collectionView.backgroundColor = Constants.appBackgroundColor
         collectionView.register(UINib(nibName: "MusicCell", bundle: nil), forCellWithReuseIdentifier: MusicCell.identifier)
@@ -57,7 +77,11 @@ extension FavouriteViewController: UICollectionViewDelegate, UICollectionViewDat
     
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MusicCell.identifier, for: indexPath) as? MusicCell {
-            cell.setup(viewModel.data[indexPath.section][indexPath.row])
+            let info = viewModel.data[indexPath.section][indexPath.row]
+            let image = viewModel.images[info.artworkUrl60 ?? ""]
+            let isFavourite = CommonMethods.isFavourite(info)
+            cell.setup(delegate: self, info: info, image: image, isFavourite: isFavourite)
+            return cell
             return cell
         }
         return UICollectionViewCell()

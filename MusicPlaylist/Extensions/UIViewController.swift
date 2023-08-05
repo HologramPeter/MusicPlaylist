@@ -26,7 +26,7 @@ extension UIViewController {
     }
     
     func showErrorMessage(_ message: String){
-        AlertHelper.present(in: self, title: "alert_error".localized, message: message)
+        AlertHelper.present(in: self, title: "alert_title_error".localized, message: message)
     }
     
     func checkInternetConnection(_ action: () -> Void){

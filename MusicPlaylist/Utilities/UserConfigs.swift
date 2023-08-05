@@ -59,7 +59,7 @@ struct UserDefaultsDataWrapper<T: Codable>{
 }
 
 struct UserConfigs {
-    @UserDefaultsWrapper(key: "FavouriteMusicList", defaultValue: [])
+    @UserDefaultsDataWrapper(key: "FavouriteMusicList", defaultValue: [])
     static var favouriteList: [MusicInfo]?
     
     @UserDefaultsWrapper(key: "Language", defaultValue: nil)

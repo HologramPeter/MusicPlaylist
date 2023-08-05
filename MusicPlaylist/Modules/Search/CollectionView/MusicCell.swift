@@ -8,40 +8,42 @@
 import Foundation
 import UIKit
 
+protocol MusicCellDelegate{
+    func onToggle(info: MusicInfo?, isFavourite: Bool) -> Void
+}
+
 class MusicCell: UICollectionViewCell{
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var descLbl: UILabel!
     @IBOutlet weak var btnFavourite: UIButton!
     
+    static let defaultImage = UIImage(named: "music.note")
+    static let onImage = UIImage(named: "star.fill")
+    static let offImage = UIImage(named: "star")
+    
     typealias `Self` = MusicCell
     static let identifier = "MusicCell"
     
+    var delegate: MusicCellDelegate?
+    var info: MusicInfo?
     var isFavourite: Bool = false
 
-    func setup(_ info: MusicInfo) {
-//        titleLbl.text = info.name
-//        isFavourite = CommonMethods.isFavourite(info)
-        //setup btns and image
-        // downloadImage(from: )
-        //URL(string: info.viewURL?? "")
-    }
-    
-    func downloadImage(from url: URL) {
-//        print("Download Started")
-//        getData(from: url) { data, response, error in
-//            guard let data = data, error == nil else { return }
-//            print(response?.suggestedFilename ?? url.lastPathComponent)
-//            print("Download Finished")
-//            // always update the UI from the main thread
-//            DispatchQueue.main.async() { [weak self] in
-//                self?.imageView.image = UIImage(data: data)
-//            }
-//        }
-    }
-    
-    @objc
-    func toggleFavourite(){
+    func setup(delegate: MusicCellDelegate, info: MusicInfo, image: UIImage?, isFavourite: Bool) {
+        self.delegate = delegate
+        self.info = info
+        self.isFavourite = isFavourite
         
+        titleLbl.text = info.name
+        descLbl.text = info.artistName
+        leftImageView.image = image ?? Self.defaultImage
+        btnFavourite.setTitleText("", for: .normal)
+        btnFavourite.setImage(self.isFavourite ? Self.onImage: Self.offImage, for: .normal)
+    }
+    
+    @IBAction func toggleFavourite(sender: Any){
+        isFavourite = !isFavourite
+        btnFavourite.setImage(isFavourite ? Self.onImage: Self.offImage, for: .normal)
+        delegate?.onToggle(info: info, isFavourite: isFavourite)
     }
 }
